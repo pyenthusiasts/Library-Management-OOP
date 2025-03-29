@@ -14,7 +14,7 @@ class Person(ABC):
     """
 
     def __init__(self, name, email):
-        self.name = name
+        self.name = name 
         self.email = email
 
     @abstractmethod
