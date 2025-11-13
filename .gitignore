@@ -2,6 +2,21 @@
 data/*.json
 !data/.gitkeep
 
+# Logs
+logs/*.log
+logs/*.jsonl
+!logs/.gitkeep
+
+# Backups
+backups/*.tar.gz
+backups/*.json
+!backups/.gitkeep
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  library-system:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: library-management-system:latest
+    container_name: library-system
+    environment:
+      - LIBRARY_NAME=${LIBRARY_NAME:-City Library}
+      - MAX_BOOKS_PER_MEMBER=${MAX_BOOKS_PER_MEMBER:-5}
+      - LOAN_PERIOD_DAYS=${LOAN_PERIOD_DAYS:-14}
+      - LATE_FEE_PER_DAY=${LATE_FEE_PER_DAY:-0.50}
+      - STORAGE_PATH=${STORAGE_PATH:-data/library_data.json}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - ENV=${ENV:-production}
+    volumes:
+      - library-data:/app/data
+      - library-logs:/app/logs
+      - library-backups:/app/backups
+      - library-config:/app/config
+    restart: unless-stopped
+    networks:
+      - library-network
+    stdin_open: true
+    tty: true
+
+  # Future: Add API service here
+  # library-api:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.api
+  #   ports:
+  #     - "8000:8000"
+  #   depends_on:
+  #     - library-system
+  #   networks:
+  #     - library-network
+
+volumes:
+  library-data:
+    driver: local
+  library-logs:
+    driver: local
+  library-backups:
+    driver: local
+  library-config:
+    driver: local
+
+networks:
+  library-network:
+    driver: bridge
