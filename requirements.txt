@@ -1,0 +1,5 @@
+# Core dependencies for the library management system
+# Python 3.8+ required
+
+# No external dependencies required for core functionality
+# All features use Python standard library
