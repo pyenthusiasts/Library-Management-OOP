@@ -1,0 +1,11 @@
+# Core dependencies for the library management system
+# Python 3.8+ required
+
+# No external dependencies required for core functionality
+# All features use Python standard library
+
+# Optional: For enhanced CLI output (not required)
+# rich>=13.0.0
+
+# Optional: For .env file parsing (not required, built-in parser included)
+# python-dotenv>=1.0.0

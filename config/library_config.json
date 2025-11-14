@@ -1,0 +1,7 @@
+{
+  "library_name": "Example Library",
+  "max_books_per_member": 5,
+  "loan_period_days": 14,
+  "late_fee_per_day": 0.50,
+  "storage_path": "data/library_data.json"
+}
